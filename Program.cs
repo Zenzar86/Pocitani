@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,50 +12,111 @@ namespace Pocitani
         {
             // Uvítání 
             Console.WriteLine("Ahoj, vítejte v Jednoduché konzolové aplikaci pro počítání!");
-
-            // Provedení jednoduchých aritmetických operací
-            Console.WriteLine("Uděláme několik jednoduchých aritmetických operací.");
+            Console.WriteLine("Budete zadávat čísla pro různé aritmetické operace.");
+            Console.WriteLine();
 
             // Sčítání
-            int cislo1 = 10;
-            int cislo2 = 20;
-            int soucet = cislo1 + cislo2;
-            Console.WriteLine($"Součet čísel {cislo1} a {cislo2} je {soucet}.");
+            Console.WriteLine("--- SČÍTÁNÍ ---");
+            Console.Write("Zadejte první číslo pro sčítání: ");
+            int scitani1 = ZiskatCislo();
+            Console.Write("Zadejte druhé číslo pro sčítání: ");
+            int scitani2 = ZiskatCislo();
+            int soucet = scitani1 + scitani2;
+            Console.WriteLine($"Součet čísel {scitani1} a {scitani2} je {soucet}.");
+            Console.WriteLine();
 
             // Odčítání
-            int rozdil = cislo2 - cislo1;
-            Console.WriteLine($"Rozdíl mezi čísly {cislo2} a {cislo1} je {rozdil}.");
+            Console.WriteLine("--- ODČÍTÁNÍ ---");
+            Console.Write("Zadejte první číslo pro odčítání: ");
+            int odcitani1 = ZiskatCislo();
+            Console.Write("Zadejte druhé číslo pro odčítání (bude odečteno od prvního): ");
+            int odcitani2 = ZiskatCislo();
+            int rozdil = odcitani1 - odcitani2;
+            Console.WriteLine($"Rozdíl mezi čísly {odcitani1} a {odcitani2} je {rozdil}.");
+            Console.WriteLine();
 
             // Násobení
-            int soucin = cislo1 * cislo2;
-            Console.WriteLine($"Součin čísel {cislo1} a {cislo2} je {soucin}.");
+            Console.WriteLine("--- NÁSOBENÍ ---");
+            Console.Write("Zadejte první číslo pro násobení: ");
+            int nasobeni1 = ZiskatCislo();
+            Console.Write("Zadejte druhé číslo pro násobení: ");
+            int nasobeni2 = ZiskatCislo();
+            int soucin = nasobeni1 * nasobeni2;
+            Console.WriteLine($"Součin čísel {nasobeni1} a {nasobeni2} je {soucin}.");
+            Console.WriteLine();
 
             // Dělení
-            if (cislo2 != 0)
+            Console.WriteLine("--- DĚLENÍ ---");
+            Console.Write("Zadejte dělenec (číslo, které bude děleno): ");
+            int deleni1 = ZiskatCislo();
+            int deleni2 = 0;
+            bool validDivisor = false;
+            
+            while (!validDivisor)
             {
-                double podil = (double)cislo1 / cislo2;
-                Console.WriteLine($"Podíl čísla {cislo1} vyděleného číslem {cislo2} je {podil}.");
+                Console.Write("Zadejte dělitel (číslo, kterým se bude dělit): ");
+                deleni2 = ZiskatCislo();
+                if (deleni2 != 0)
+                {
+                    validDivisor = true;
+                }
+                else
+                {
+                    Console.WriteLine("Dělení nulou není povoleno. Zadejte jiné číslo.");
+                }
             }
-            else
-            {
-                Console.WriteLine("Dělení nulou není povoleno.");
-            }
+            
+            double podil = (double)deleni1 / deleni2;
+            Console.WriteLine($"Podíl čísla {deleni1} vyděleného číslem {deleni2} je {podil}.");
+            Console.WriteLine();
+
             // Mocniny
-            double mocnina2 = Math.Pow(cislo1, 2); // druhá mocnina
-            double mocnina3 = Math.Pow(cislo1, 3); // třetí mocnina
-            Console.WriteLine($"Druhá mocnina čísla {cislo1} je {mocnina2}.");
-            Console.WriteLine($"Třetí mocnina čísla {cislo1} je {mocnina3}.");
+            Console.WriteLine("--- MOCNINY ---");
+            Console.Write("Zadejte číslo pro výpočet mocnin: ");
+            int mocninyZaklad = ZiskatCislo();
+            Console.Write("Zadejte exponent (na kolikátou mocninu): ");
+            int exponent = ZiskatCislo();
+            double mocnina = Math.Pow(mocninyZaklad, exponent);
+            Console.WriteLine($"{mocninyZaklad} na {exponent}. mocninu je {mocnina}.");
+            Console.WriteLine();
 
             // Odmocniny
-            double odmocnina2 = Math.Sqrt(cislo1); // druhá odmocnina
-            double odmocnina3 = Math.Pow(cislo1, 1.0 / 3.0); // třetí odmocnina
-            Console.WriteLine($"Druhá odmocnina čísla {cislo1} je {odmocnina2:F2}.");
-            Console.WriteLine($"Třetí odmocnina čísla {cislo1} je {odmocnina3:F2}.");
+            Console.WriteLine("--- ODMOCNINY ---");
+            int odmocninyZaklad = 0;
+            bool validRoot = false;
+            
+            while (!validRoot)
+            {
+                Console.Write("Zadejte číslo pro výpočet odmocniny (musí být kladné): ");
+                odmocninyZaklad = ZiskatCislo();
+                if (odmocninyZaklad >= 0)
+                {
+                    validRoot = true;
+                }
+                else
+                {
+                    Console.WriteLine("Pro výpočet reálné odmocniny je potřeba zadat kladné číslo.");
+                }
+            }
+            
+            double odmocnina = Math.Sqrt(odmocninyZaklad);
+            Console.WriteLine($"Druhá odmocnina čísla {odmocninyZaklad} je {odmocnina:F2}.");
+            Console.WriteLine();
 
             // Čekání na stisk klávesy před ukončením
             Console.WriteLine("Stiskněte libovolnou klávesu pro ukončení...");
             Console.ReadKey();
         }
 
+        // Pomocná metoda pro získání čísla od uživatele s ošetřením vstupu
+        static int ZiskatCislo()
+        {
+            int cislo;
+            while (!int.TryParse(Console.ReadLine(), out cislo))
+            {
+                Console.Write("Neplatný vstup. Zadejte prosím celé číslo: ");
+            }
+            return cislo;
+        }
     }
 }
