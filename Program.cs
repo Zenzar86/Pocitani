@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,8 @@ namespace Pocitani
 {
     internal class Program
     {
+        private static Random random = new Random(); // Přidáno pro generování náhodných čísel
+
         static void Main(string[] args)
         {
             // Uvítání 
@@ -101,6 +103,15 @@ namespace Pocitani
             
             double odmocnina = Math.Sqrt(odmocninyZaklad);
             Console.WriteLine($"Druhá odmocnina čísla {odmocninyZaklad} je {odmocnina:F2}.");
+            Console.WriteLine();
+
+            // Modulo (Zbytek po dělení) s náhodnými čísly
+            Console.WriteLine("--- MODULO (ZBYTEK PO DĚLENÍ) ---");
+            int modulo1 = random.Next(1, 101); // Náhodné číslo 1-100
+            int modulo2 = random.Next(1, 11);  // Náhodné číslo 1-10 (nenulový dělitel)
+            int zbytek = modulo1 % modulo2;
+            Console.WriteLine($"Zbytek po dělení čísla {modulo1} číslem {modulo2} je {zbytek}.");
+            Console.WriteLine("(Použita náhodně generovaná čísla)");
             Console.WriteLine();
 
             // Čekání na stisk klávesy před ukončením
