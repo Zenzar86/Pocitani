@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace Pocitani
 {
     internal class Program
     {
-        private static Random random = new Random(); // Přidáno pro generování náhodných čísel
+        // Odebráno: private static Random random = new Random();
 
         static void Main(string[] args)
         {
@@ -105,13 +105,69 @@ namespace Pocitani
             Console.WriteLine($"Druhá odmocnina čísla {odmocninyZaklad} je {odmocnina:F2}.");
             Console.WriteLine();
 
-            // Modulo (Zbytek po dělení) s náhodnými čísly
+            // Faktoriál
+            Console.WriteLine("--- FAKTORIÁL ---");
+            int faktorialCislo = -1;
+            while (faktorialCislo < 0)
+            {
+                Console.Write("Zadejte nezáporné celé číslo pro výpočet faktoriálu: ");
+                faktorialCislo = ZiskatCislo();
+                if (faktorialCislo < 0)
+                {
+                    Console.WriteLine("Faktoriál je definován pouze pro nezáporná čísla.");
+                }
+            }
+
+            long faktorialVysledek = 1;
+            // Faktoriál 0 je 1, pro ostatní počítáme
+            if (faktorialCislo > 0) 
+            {
+                for (int i = 1; i <= faktorialCislo; i++)
+                {
+                    // Kontrola přetečení (i když long má velký rozsah)
+                    try
+                    {
+                        faktorialVysledek = checked(faktorialVysledek * i);
+                    }
+                    catch (OverflowException)
+                    {
+                        Console.WriteLine($"Výsledek faktoriálu pro {faktorialCislo} je příliš velký pro typ long.");
+                        faktorialVysledek = -1; // Indikace chyby
+                        break;
+                    }
+                }
+            }
+            
+            if (faktorialVysledek != -1) // Pokud nedošlo k přetečení
+            {
+                 Console.WriteLine($"Faktoriál čísla {faktorialCislo} je {faktorialVysledek}.");
+            }
+            Console.WriteLine();
+
+
+            // Modulo (Zbytek po dělení)
             Console.WriteLine("--- MODULO (ZBYTEK PO DĚLENÍ) ---");
-            int modulo1 = random.Next(1, 101); // Náhodné číslo 1-100
-            int modulo2 = random.Next(1, 11);  // Náhodné číslo 1-10 (nenulový dělitel)
+            Console.Write("Zadejte dělenec (číslo, ze kterého se počítá zbytek): ");
+            int modulo1 = ZiskatCislo();
+            int modulo2 = 0;
+            bool validModuloDivisor = false;
+
+            while (!validModuloDivisor)
+            {
+                Console.Write("Zadejte dělitel (číslo, kterým se dělí pro zbytek): ");
+                modulo2 = ZiskatCislo();
+                if (modulo2 != 0)
+                {
+                    validModuloDivisor = true;
+                }
+                else
+                {
+                    Console.WriteLine("Dělení nulou není povoleno. Zadejte jiné číslo.");
+                }
+            }
+
             int zbytek = modulo1 % modulo2;
             Console.WriteLine($"Zbytek po dělení čísla {modulo1} číslem {modulo2} je {zbytek}.");
-            Console.WriteLine("(Použita náhodně generovaná čísla)");
             Console.WriteLine();
 
             // Čekání na stisk klávesy před ukončením
