@@ -13,11 +13,15 @@ Tento projekt obsahuje program pro počítání, který je určen k výuce zákl
 - **Faktoriál**: Umožňuje uživateli vypočítat faktoriál zadaného nezáporného čísla.
 - **Modulo**: Umožňuje uživateli vypočítat zbytek po dělení dvou zadaných čísel (s kontrolou dělení nulou).
 
-## Instalace
+## Spuštění
 Projekt si můžete stáhnout (naklonovat) z GitHubu pomocí následujícího příkazu v terminálu nebo příkazovém řádku:
 
 ```bash
 git clone https://github.com/Zenzar86/Pocitani.git
 ```
 
-Po stažení přejděte do adresáře `Pocitani` a můžete program spustit (např. pomocí `dotnet run`, pokud máte nainstalovaný .NET SDK).
+Po stažení projektu:
+1.  Otevřete soubor `Pocitani.sln` ve Visual Studiu.
+2.  Spusťte projekt stisknutím tlačítka `Start` (nebo klávesy F5).
+
+Alternativně, po sestavení projektu (Build) ve Visual Studiu, můžete spustitelný soubor (`.exe`) najít ve výstupním adresáři (např. `bin/Debug/`).
