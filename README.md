@@ -10,6 +10,8 @@ Tento projekt obsahuje program pro počítání, který je určen k výuce zákl
 - **Dělení**: Umožňuje uživateli dělit jedno číslo jiným (s kontrolou dělení nulou).
 - **Mocnění**: Umožňuje uživateli vypočítat mocninu zadaného čísla.
 - **Odmocnění**: Umožňuje uživateli vypočítat druhou odmocninu zadaného nezáporného čísla.
+- **Faktoriál**: Umožňuje uživateli vypočítat faktoriál zadaného nezáporného čísla.
+- **Modulo**: Umožňuje uživateli vypočítat zbytek po dělení dvou zadaných čísel (s kontrolou dělení nulou).
 
 ## Instalace
 Projekt si můžete stáhnout (naklonovat) z GitHubu pomocí následujícího příkazu v terminálu nebo příkazovém řádku:
