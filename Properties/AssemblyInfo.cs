@@ -16,11 +16,11 @@ using System.Runtime.InteropServices;
 
 // Nastavení ComVisible na false způsobí neviditelnost typů v tomto sestavení
 // pro komponenty modelu COM. Pokud potřebujete přístup k typu v tomto sestavení
-// komponenty COM, nastavte atribut ComVisible daného typu na hodnotu true.
+// modelu COM, nastavte atribut ComVisible daného typu na hodnotu True.
 [assembly: ComVisible(false)]
 
 // Následující GUID se používá pro ID knihovny typů, pokud je tento projekt vystavený pro COM.
-[assembly: Guid("d21a752a-5cbe-448f-8985-ec059d67bc98")]
+[assembly: Guid("87449770-a800-4e78-bf50-65189ee27681")]
 
 // Informace o verzi sestavení se skládá z těchto čtyř hodnot:
 //
@@ -29,8 +29,5 @@ using System.Runtime.InteropServices;
 //      Číslo sestavení
 //      Revize
 //
-// Můžete zadat všechny hodnoty nebo nastavit výchozí číslo buildu a revize
-// pomocí zástupného znaku * takto:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
