@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Pocitani
@@ -20,3 +20,4 @@ namespace Pocitani
         // Removed ZiskatCislo() and all console calculation logic
     }
 }
+
